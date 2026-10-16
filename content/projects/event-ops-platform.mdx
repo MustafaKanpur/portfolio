@@ -1,0 +1,46 @@
+---
+title: Event Operations Platform
+summary: One data model that replaced a five-tool spreadsheet-and-email workflow, with an AI scheduling agent that checks its own work.
+dates: 2026 – Present
+role: Solo developer
+order: 2
+featured: true
+overview: >-
+  An operations platform for running events, built to replace a five-tool workflow of
+  spreadsheets and email threads with one data model. Its cost-capped AI agent drafts event
+  schedules from plain English, checks them against live data, and corrects itself before a
+  human approves each block.
+stack: [Next.js 14, TypeScript, PostgreSQL, Prisma, NextAuth, Tailwind, Claude API, Zod, Vercel, Supabase]
+results:
+  - Replaced a five-tool spreadsheet-and-email workflow with one data model
+  - AI agent drafts schedules from plain English, validates them with a custom tool, and self-corrects
+  - 13 reversible migrations behind a dry-run harness
+  - The dry-run harness caught 5 data-loss defects before deployment
+# TODO: uncomment ONE video line once the demo exists, and write a real description.
+# video: { type: "youtube", id: "VIDEO_ID", description: "..." }
+# video: { type: "file", src: "/videos/event-ops-platform.mp4", poster: "/videos/event-ops-platform.jpg", captions: "/videos/event-ops-platform.vtt", description: "..." }
+# TODO: add repo / demo URLs.
+# repo: https://github.com/MustafaKanpur/REPO
+# demo: https://DEMO_URL
+# TODO: add screenshots to /public/images/event-ops-platform/
+---
+
+## Problem
+
+Event operations lived across five tools: spreadsheets for schedules and vendors, email threads for
+approvals, and no single source of truth. Every change had to be copied by hand, and things fell
+through the gaps.
+
+<Todo>expand the problem: who the users are and what broke in the old workflow.</Todo>
+
+## Approach
+
+- **One data model.** PostgreSQL and Prisma replaced the spreadsheets, with Zod validating every
+  write at the boundary.
+- **A careful AI agent.** The Claude-powered agent turns a plain-English request into a draft
+  schedule, validates it against live data through a custom tool, and fixes its own conflicts.
+  A spending cap bounds cost, and a human approves each block before it's saved.
+- **Safe migrations.** All 13 schema migrations are reversible and run through a dry-run
+  harness first. It caught 5 data-loss defects before they reached production.
+
+<Todo>add architecture details, trade-offs, and what you'd do next.</Todo>

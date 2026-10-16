@@ -1,0 +1,49 @@
+---
+title: Clinician Chronic Disease Risk Dashboard
+summary: An auditable ML dashboard that predicts chronic disease risk and explains every prediction in plain language.
+dates: June 2026 – Present
+role: Solo developer
+order: 1
+featured: true
+overview: >-
+  A dashboard that helps clinicians see which patients are at elevated risk of chronic disease,
+  and why. It compares three models trained on synthetic EHR data, breaks each prediction down
+  with SHAP, places every patient alongside a peer cohort, and uses the Claude API to summarize
+  each chart in plain language.
+stack: [Python, FastAPI, scikit-learn, XGBoost, SHAP, pandas, React 18, Vite, Recharts, Claude API, Vercel, Render, Synthea EHR data]
+results:
+  - 0.95 ROC-AUC with XGBoost, benchmarked against Logistic Regression and Random Forest
+  - Per-patient SHAP attributions make every prediction auditable
+  - KMeans peer cohorts show how a patient compares with similar patients
+  - Claude-generated plain-language summaries for every chart
+# TODO: uncomment ONE video line once the demo exists, and write a real description.
+# video: { type: "youtube", id: "VIDEO_ID", description: "Walkthrough of the dashboard: risk scores, SHAP breakdown, and the AI summary." }
+# video: { type: "file", src: "/videos/clinician-risk-dashboard.mp4", poster: "/videos/clinician-risk-dashboard.jpg", captions: "/videos/clinician-risk-dashboard.vtt", description: "..." }
+# TODO: add repo / demo URLs.
+# repo: https://github.com/MustafaKanpur/REPO
+# demo: https://DEMO_URL
+# TODO: add screenshots to /public/images/clinician-risk-dashboard/
+# screenshots:
+#   - { src: "/images/clinician-risk-dashboard/overview.png", alt: "Patient risk overview" }
+---
+
+## Problem
+
+Risk scores that clinicians can't interrogate don't get used. A black-box probability next to a
+patient's name raises more questions than it answers: *why* is this patient high risk, and
+compared to whom?
+
+<Todo>expand the problem with the clinical context and who this is for.</Todo>
+
+## Approach
+
+- **Model selection.** Trained Logistic Regression, Random Forest, and XGBoost on Synthea
+  synthetic EHR data and compared them on ROC-AUC. XGBoost led at 0.95.
+- **Explainability.** Per-patient SHAP attributions show which features pushed each
+  prediction up or down.
+- **Context.** KMeans clustering builds peer cohorts, so a clinician can compare a patient
+  with similar patients instead of a population average.
+- **Plain language.** A FastAPI backend sends chart data to the Claude API, which returns a
+  short summary a clinician can read in seconds.
+
+<Todo>add architecture details, trade-offs, and what you'd do next.</Todo>

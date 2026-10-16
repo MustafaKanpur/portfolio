@@ -1,0 +1,42 @@
+---
+title: Canadian Insurance & Pension Contribution Analysis
+summary: A 4.6 GB Polars pipeline and an XGBoost model that explains insurance and pension contributions across 77,542 postal codes.
+dates: 2025 – 2026
+role: Team project, independently extended
+order: 3
+featured: true
+overview: >-
+  An analysis of insurance and pension contributions across Canada. A Polars pipeline merges
+  4.6 GB of Environics data, an XGBoost model predicts contributions by postal code, and a
+  four-page Power BI dashboard presents the findings.
+stack: [Python, Polars, XGBoost, scikit-learn, SHAP, Power BI, DAX]
+results:
+  - "R² 0.861 vs a 0.41 baseline"
+  - 0.44-point MAE on 11,632 held-out postal codes
+  - 4.6 GB merged across 77,542 postal codes and ~970 features
+  - 4-page Power BI dashboard with income-weighted DAX measures
+# TODO: uncomment ONE video line once the demo exists, and write a real description.
+# video: { type: "youtube", id: "VIDEO_ID", description: "..." }
+# video: { type: "file", src: "/videos/insurance-pension-analysis.mp4", poster: "/videos/insurance-pension-analysis.jpg", captions: "/videos/insurance-pension-analysis.vtt", description: "..." }
+# TODO: add repo / demo URLs.
+# repo: https://github.com/MustafaKanpur/REPO
+# TODO: add screenshots to /public/images/insurance-pension-analysis/
+---
+
+## Problem
+
+Insurance and pension contributions vary widely across Canada, but the data that could explain
+why is spread across large Environics datasets that are hard to join and slow to work with.
+
+<Todo>expand the problem: the original team brief and what you extended on your own.</Todo>
+
+## Approach
+
+- **Pipeline.** A Polars pipeline merges 4.6 GB of Environics data across 77,542 postal codes
+  and about 970 features.
+- **Model.** XGBoost regression reached R² 0.861, against a 0.41 baseline, with a 0.44-point MAE
+  on 11,632 held-out postal codes. SHAP explains which features drive contributions.
+- **Dashboard.** A four-page Power BI report built with Power Query, a one-to-one data model, and
+  income-weighted DAX measures.
+
+<Todo>add details on feature selection, validation strategy, and key findings.</Todo>
