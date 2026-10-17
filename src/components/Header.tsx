@@ -3,7 +3,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const nav = [
   { href: "/#projects", label: "Work" },
-  { href: "/blog", label: "Blog" },
+  // { href: "/blog", label: "Blog" }, // hidden for now; uncomment to bring it back
   { href: "/resume", label: "Resume" },
   { href: "/#contact", label: "Contact" },
 ];
