@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
+import ProjectLinks from "@/components/ProjectLinks";
 import ProjectVideo from "@/components/ProjectVideo";
 import { Todo } from "@/components/mdx";
 import { getProjects } from "@/lib/content";
@@ -57,6 +58,11 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
             {meta.dates}
             {meta.role && ` · ${meta.role}`}
           </p>
+          <div className="mt-8">
+            <ProjectLinks repo={meta.repo} demo={meta.demo} />
+          </div>
+          {!meta.repo && <Todo>add `repo:` (GitHub URL) to the frontmatter.</Todo>}
+          {!meta.demo && <Todo>add `demo:` (live URL) to the frontmatter, or leave it out if there isn&apos;t one.</Todo>}
         </div>
       </header>
 
@@ -106,32 +112,6 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
               ))}
             </ul>
           </Section>
-        )}
-
-        {!meta.repo && <Todo>add `repo:` (GitHub URL) to the frontmatter.</Todo>}
-        {!meta.demo && <Todo>add `demo:` (live URL) to the frontmatter, or leave it out if there isn&apos;t one.</Todo>}
-        {(meta.repo || meta.demo) && (
-        <Section title="Links">
-          <ul className="flex flex-wrap gap-3">
-            {[
-              { href: meta.repo, label: "Source code" },
-              { href: meta.demo, label: "Live demo" },
-            ].map(({ href, label }) =>
-              href ? (
-                <li key={label}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block border-2 border-ink bg-ink px-5 py-2.5 font-display text-lg font-bold text-paper shadow-block-sm transition-transform hover:-translate-y-0.5"
-                  >
-                    {label} ↗<span className="sr-only"> (opens in a new tab)</span>
-                  </a>
-                </li>
-              ) : null,
-            )}
-          </ul>
-        </Section>
         )}
 
         {meta.screenshots.length > 0 ? (

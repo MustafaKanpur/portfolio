@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import ProjectLinks from "./ProjectLinks";
 import { videoThumb, type Project } from "@/lib/content";
 
 const accents = [
@@ -36,7 +37,10 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         </div>
       )}
       <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
-        <p className="text-sm font-semibold text-muted">{project.dates}</p>
+        <div className="flex min-h-9 flex-wrap items-center justify-between gap-3">
+          <p className="text-sm font-semibold text-muted">{project.dates}</p>
+          <ProjectLinks repo={project.repo} demo={project.demo} small />
+        </div>
         <h3 className="font-display text-2xl leading-tight font-bold tracking-tight">
           {/* The whole card is clickable via this link's ::after overlay. */}
           <Link href={href} className="after:absolute after:inset-0 hover:underline hover:decoration-tomato hover:decoration-4">
